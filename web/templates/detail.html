@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Hello</title>
-    </head>
-    <body>
+{% extends 'base.html' %}
+{% load staticfiles %}
 
-    </body>
-</html>
+{% block page %}
+    <div class="container">
+        <div class="row">
+            <ui>The Big Day|Add the Milky Way Trade Platform to your trading</ui>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+                <h1>{{json_result.name}}</h1>
+                <p>{{json_result}}</p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+                <div class="col-md-8">
+                    <p>{{json_result}}</p>
+                </div>
+            </div>
+                <div class="jumbotron">
+                    <div class="col-md-4">
+                    <p>{{json_result}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
