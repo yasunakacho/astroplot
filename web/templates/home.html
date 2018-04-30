@@ -16,34 +16,24 @@
                     <th>CRYPTOCURRENCY</th>
                     <th>GROWTH SCORE</th>
                     <th>PRICE</th>
-                    <th>1DAY CHANGE</th>
-                    <th>1WEEK CHANGE</th>
-                    <th>1MONTH CHANGE</th>
-                    <th>1YEAR CHANGE</th>
+                    <th>MARKET CAP</th>
+                    <th>24H CHANGE</th>
+                    <th>7D CHANGE</th>
                     <th>ALART</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>testcoin</th>
-                        <td>XX</td>
-                        <td>$7874.44</td>
-                        <td>7.78%</td>
-                        <td>17.18%</td>
-                        <td>57.72%</td>
-                        <td>237.02%</td>
-                        <td>NO</td>
-                    </tr>
-                    <!--{{result}}-->
                     {% for coin in result %}
                         <tr>
-                            <th scope="row"><a href="/detail/{{coin.id}}">{{coin.name}}</a></th>
+                            <td>{{coin.rank}}&ensp;
+                                <img src="static/img/{{coin.symbol}}@2x.png" alt="{{coin.symbol}}" height="24">&ensp;
+                                <a href="/detail/{{coin.id}}">{{coin.name}}</a>
+                            </td>
                             <td>-</td>
                             <td>&#36;{{coin.price_usd}}</td>
+                            <td>&#36;{{coin.market_cap_usd}}</td>
                             <td>{{coin.percent_change_24h}}&#37;</td>
                             <td>{{coin.percent_change_7d}}&#37;</td>
-                            <td>-</td>
-                            <td>n/a</td>
                             <td>YES/NO</td>
                         </tr>
                     {% endfor %}
