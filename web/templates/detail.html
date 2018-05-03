@@ -3,44 +3,53 @@
 
 {% block page %}
     <div class="container">
-        <div class="row">
-            <ui>The Big Day|Add the Milky Way Trade Platform to your trading</ui>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="jumbotron">
-                <h1>{{json_result.name}}</h1>
-                <p>{{json_result}}</p>
-                <p><a class="btn btn-primary btn-lg" href="/" role="button">Learn more</a></p>
+        <div class="card-deck">
+            <div class="row mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>{{json_result.name}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{json_result}}</p>
+                        <a href="/" class="btn btn-primary">Learn more</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h1>Price Chart</h1>
-                <p>{{json_result}}</p>
+            <div class="row mb-4">
+                <div class="card" style="max-width: 46rem;">
+                    <div class="card-header">
+                        <h5>Price Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>{{json_result}}</p>
+                    </div>
+                </div>
+                <div class="card" style="max-width: 24rem;">
+                    <div class="card-header">
+                        <h5>Alart</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>{{json_result}}</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4">
-                <h1>Alart</h1>
-                <p>{{json_result}}</p>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h1>Growth Score Chart</h1>
-                <p>{{json_result}}</p>
-            </div>
-            <div class="col-md-4">
-                <h1>News Feed</h1>
-                <p>{{json_result}}</p>
-            </div>
-            <div class="col-md-4 ml-md-auto">
-                <h1>Tweets</h1>
-                <p>{{json_result}}</p>
+            <div class="row mb-4">
+                <div class="card" style="max-width: 46rem;">
+                    <div class="card-header">
+                        <h5>Growth Score Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>{{json_result}}</p>
+                    </div>
+                </div>
+                <div class="card" style="max-width: 24rem;">
+                    <div class="card-header">
+                        <h5>Tweets</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>{{json_result}}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

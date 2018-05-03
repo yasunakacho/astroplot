@@ -26,7 +26,7 @@ SECRET_KEY = '(-wckop59r_^%c1j&%i)4gd7xa5a+op43w5pvf5)7l!hw=66v&'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'protected-shore-64560.herokuapp.com',
+#   'protected-shore-64560.herokuapp.com',
     'space17.herokuapp.com',
     'www.space17.com',
     'localhost',
