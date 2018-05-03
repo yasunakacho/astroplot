@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'protected-shore-64560.herokuapp.com',
+    'space17.herokuapp.com',
     'www.space17.com',
     'localhost',
 ]
