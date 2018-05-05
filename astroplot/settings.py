@@ -128,7 +128,15 @@ STATIC_URL = '/static/'
 #STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, 'web/static'),
 #]
+"""
+# Variables that contains the user credentials to access Twitter API
+ACCESS_TOKEN = 'xxx'
+ACCESS_SECRET = 'yyy'
+CONSUMER_KEY = 'zzz'
+CONSUMER_SECRET = 'aaa'
 
+oauth = OAuth(ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
+"""
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)

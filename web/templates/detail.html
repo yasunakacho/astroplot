@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="row mb-4">
-                <div class="card" style="max-width: 46rem;">
+                <div class="card" col-md-8>
                     <div class="card-header">
                         <h5>Price Chart</h5>
                     </div>
@@ -24,17 +24,37 @@
                         <p>{{json_result}}</p>
                     </div>
                 </div>
+
                 <div class="card" style="max-width: 24rem;">
                     <div class="card-header">
-                        <h5>Alart</h5>
+                        <h5>Price Alert</h5>
                     </div>
                     <div class="card-body">
-                        <p>{{json_result}}</p>
+                        <select class="custom-select mb-3">
+                            <option selected>Coin to Track</option>
+                            <option value="1">Bitcoin</option>
+                            <option value="2">Ethereum</option>
+                            <option value="3">Ripple</option>
+                        </select>
+                        <form>
+                            <div class="form-row mb-3">
+                                <div class="form-group col-md-6">
+                                    <p>When Price is Above</p>
+                                    <input type="number" class="form-control" placeholder="$10000">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <p>When Price is Below</p>
+                                    <input type="number" class="form-control" placeholder="$100">
+                                </div>
+                            </div>
+                        </form>
+                        <button type="submit" class="btn btn-primary mb-2 center">Start Tracking</button>
                     </div>
                 </div>
+
             </div>
             <div class="row mb-4">
-                <div class="card" style="max-width: 46rem;">
+                <div class="card" col-md-8>
                     <div class="card-header">
                         <h5>Growth Score Chart</h5>
                     </div>
