@@ -21,6 +21,5 @@ from web import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
-    url(r'^detail/(?P<id>.+)/$', views.detail, name='detail'),
-    url(r'^static/(?P<id>.+)/$', views.detail, name='static')
+    url(r'^detail/(?P<id>.+)/$', views.detail, name='detail')
 ]
