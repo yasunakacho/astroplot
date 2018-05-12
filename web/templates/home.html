@@ -25,10 +25,11 @@
                 </thead>
                 <tbody>
                     {% for coin in result %}
-                    {% load static %}
                         <tr>
                             <td>{{coin.rank}}&ensp;
-                                <img src=" {% static 'img/BTC.png' %}" alt="{{coin.symbol}}" height="24">&ensp;
+                                {% with 'img/'|add:coin.symbol|add:'.png' as image_static %}
+                                <img src=" {% static image_static %}" alt="{{coin.symbol}}" height="24">&ensp;
+                                {% endwith %}
                                 <a href="/detail/{{coin.id}}">{{coin.name}}</a>
                             </td>
                             <td>-</td>
