@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -121,22 +122,25 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+#To serve static files on Heroku
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Extra places for collectstatic to find static files.
 #STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, 'web/static'),
 #]
-"""
-# Variables that contains the user credentials to access Twitter API
-ACCESS_TOKEN = 'xxx'
-ACCESS_SECRET = 'yyy'
-CONSUMER_KEY = 'zzz'
-CONSUMER_SECRET = 'aaa'
 
-oauth = OAuth(ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
-"""
+# Variables that contains the user credentials to access Twitter API
+ACCESS_TOKEN = 'xx'
+ACCESS_SECRET = 'xx'
+CONSUMER_KEY = 'xx'
+CONSUMER_SECRET = 'xx'
+
+
+
+
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
