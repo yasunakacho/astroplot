@@ -134,9 +134,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Variables that contains the user credentials to access Twitter API
 ACCESS_TOKEN = 'xx'
-ACCESS_SECRET = 'xx'
-CONSUMER_KEY = 'xx'
-CONSUMER_SECRET = 'xx'
+ACCESS_SECRET = 'yy'
+CONSUMER_KEY = 'zz'
+CONSUMER_SECRET = '11'
 
 
 

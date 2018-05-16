@@ -35,17 +35,17 @@ def detail(request, id):
     coinmarketcap = Market()
     json_result = coinmarketcap.ticker(id, limit=10, convert='USD')
 
-
-    """  # ...
+    """
+    # ...
     twitter = Twitter(
-      auth=OAuth(token, token_key, con_secret, con_secret_key)))
+      auth=OAuth(token, token_key, con_secret, con_secret_key))
 
     api = twitter.Api(consumer_key=CONSUMER_KEY,
     consumer_secret=CONSUMER_SECRET,
     access_token_key=ACCESS_TOKEN,
     access_token_secret=ACCESS_SECRET)
     home_timeline = api.VerifyCredentials()
-    """
+
 
     def oauth_req(url, key, secret, http_method="GET", post_body="", http_headers=None):
         consumer = oauth2.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
@@ -55,15 +55,16 @@ def detail(request, id):
         return content
 
     home_timeline = oauth_req('https://api.twitter.com/1.1/statuses/home_timeline.json', ACCESS_TOKEN, ACCESS_SECRET, "GET", "A" )
-    """
+
     twitter = OAuth1Session(settings.CONSUMER_KEY, settings.CONSUMER_SECRET, settings.ACCESS_TOKEN, settings.ACCESS_TOKEN_SECRET)
 
     params = {}
     req = twitter.get("https://api.twitter.com/1.1/statuses/home_timeline.json", params = params)
 
     home_timeline = json.loads(req.text)
-    """
     return render(request, 'detail.html', {'json_result':json_result[0], 'home_timeline':home_timeline})
+    """
+    return render(request, 'detail.html', {'json_result':json_result[0]})
 
 """
 def twitter_stream(request):
