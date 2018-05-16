@@ -27,15 +27,16 @@
                     {% for coin in result %}
                         <tr>
                             <td>{{coin.rank}}&ensp;
-                                <!--
                                 {% with 'img/'|add:coin.symbol|add:'.png' as image_static %}
-                                <img src=" {% static image_static %}" alt="{{coin.symbol}}" height="24">&ensp;
+                                    <img src="{% static image_static %}" alt="{{coin.symbol}}" height="24">&ensp;
                                 {% endwith %}
+                                <!--
+                                <img src="{% static 'img/btc.png' %}" alt="{{coin.symbol}}" height="24">&ensp;
                                 -->
-                                <img src=" {% static 'img/btc.png' %}" alt="{{coin.symbol}}" height="24">&ensp;
                                 <a href="/detail/{{coin.id}}">{{coin.name}}</a>
+
                             </td>
-                            <td>-</td>
+                            <td>{{coin.symbol}}</td>
                             <td>&#36;{{coin.price_usd}}</td>
                             <td>&#36;{{coin.market_cap_usd}}</td>
                             <td>{{coin.percent_change_24h}}&#37;</td>

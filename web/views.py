@@ -20,7 +20,7 @@ def home(request):
         result_line = {
             "id": j['id'],
             "name": j['name'],
-            "symbol": j['symbol'],
+            "symbol": j['symbol'].lower(),
             "rank": j['rank'],
             "price_usd": j['price_usd'],
             "market_cap_usd": j['market_cap_usd'],
