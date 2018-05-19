@@ -7,10 +7,13 @@ gunicorn==19.8.0
 httplib2==0.11.3
 idna==2.6
 oauth2==1.9.0.post1
+oauthlib==2.0.7
 psycopg2==2.7.4
 pytz==2018.4
 requests==2.18.4
 requests-cache==0.4.13
+requests-oauthlib==0.8.0
 twitter==1.18.0
+twython==3.7.0
 urllib3==1.22
 whitenoise==3.3.1

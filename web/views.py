@@ -3,6 +3,8 @@ from coinmarketcap import Market
 from twitter import Twitter
 #import twitter
 import oauth2
+from twython import Twython
+import secrets
 #from twitter import Twitter, OAuth, TwitterHTTPError, TwitterStream
 #import coinmarketcap
 #from requests_oauthlib import OAuth1Session
@@ -64,7 +66,26 @@ def detail(request, id):
     home_timeline = json.loads(req.text)
     return render(request, 'detail.html', {'json_result':json_result[0], 'home_timeline':home_timeline})
     """
-    return render(request, 'detail.html', {'json_result':json_result[0]})
+    """
+    t = Twython(app_key=TWITTER_APP_KEY,
+            app_secret=TWITTER_APP_KEY_SECRET,
+            oauth_token=TWITTER_ACCESS_TOKEN,
+            oauth_token_secret=TWITTER_ACCESS_TOKEN_SECRET)
+    """
+    t = Twython(secrets.TWITTER_APP_KEY,
+            secrets.TWITTER_APP_KEY_SECRET,
+            secrets.TWITTER_ACCESS_TOKEN,
+            secrets.TWITTER_ACCESS_TOKEN_SECRET)
+
+    search = t.search(q='#bitcoin',   #**supply whatever query you want here**
+                      count=100)
+
+    tweets = search['statuses']
+
+    for tweet in tweets:
+      print(tweet['id_str'], '\n', tweet['text'], '\n\n\n')
+
+    return render(request, 'detail.html', {'json_result':json_result[0], 'tweet':tweet})
 
 """
 def twitter_stream(request):
