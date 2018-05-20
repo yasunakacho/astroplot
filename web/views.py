@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from coinmarketcap import Market
 from twitter import Twitter
-#import twitter
-import oauth2
 from twython import Twython
+import oauth2
 import secrets
+import os
+#import twitter
 #from twitter import Twitter, OAuth, TwitterHTTPError, TwitterStream
 #import coinmarketcap
 #from requests_oauthlib import OAuth1Session
@@ -72,6 +73,11 @@ def detail(request, id):
             oauth_token=TWITTER_ACCESS_TOKEN,
             oauth_token_secret=TWITTER_ACCESS_TOKEN_SECRET)
     """
+    TWITTER_APP_KEY = os.environ.get('TWITTER_APP_KEY')
+    TWITTER_APP_KEY_SECRET = os.environ.get('TTWITTER_APP_KEY_SECRET')
+    TWITTER_ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN')
+    TWITTER_ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET')
+
     t = Twython(secrets.TWITTER_APP_KEY,
             secrets.TWITTER_APP_KEY_SECRET,
             secrets.TWITTER_ACCESS_TOKEN,
