@@ -7,7 +7,11 @@
             <div class="row mb-4">
                 <div class="card">
                     <div class="card-header">
-                        <h5>{{json_result.name}}</h5>
+                        <h5>
+                            <a href="/">
+                                {{json_result.name}}
+                            </a>
+                        </h5>
                     </div>
                     <div class="card-body">
                         <p class="card-text">{{json_result}}</p>
@@ -62,12 +66,37 @@
                         <p>{{json_result}}</p>
                     </div>
                 </div>
+                <!--
                 <div class="card" style="max-width: 24rem;">
                     <div class="card-header">
                         <h5>Tweets</h5>
                     </div>
                     <div class="card-body">
                         <p>{{tweet}}</p>
+                    </div>
+                </div>
+                -->
+                <div class="card" style="max-width: 24rem;">
+                    <div class="card-header">
+                        <h5>Tweets</h5>
+                    </div>
+                    <div class="card-body">
+                    <!--
+                        <a class="twitter-timeline"
+                            href="https://twitter.com/TwitterDev"
+                            data-width="300"
+                            data-height="600"
+                            data-chrome="nofooter noborders">
+                        Tweets by @TwitterDev
+                        </a>
+                    -->
+                        <a class="twitter-timeline"
+                            href="https://twitter.com/{{json_result.name}}"
+                            data-width="350"
+                            data-height="350"
+                            data-chrome="nofooter noborders">
+                        Tweets by @{{json_result.name}}
+                        </a>
                     </div>
                 </div>
             </div>
