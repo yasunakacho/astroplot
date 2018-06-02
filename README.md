@@ -1,3 +1,4 @@
+.
 # astroplot
 
 git-test
