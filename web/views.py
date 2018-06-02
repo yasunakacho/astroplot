@@ -122,4 +122,10 @@ def twitter_stream(request):
     return render(request, {})
 """
 
+def login(request):
+    return render(request, 'login.html')
+
+def logout(request):
+    return render(request, 'logout.html')
+
 #print(result)
