@@ -22,10 +22,10 @@ from web import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.home, name='home'),
     url(r'^login/$', views.login, name='login'),
     url(r'^logout/$', views.logout, name='logout'),
-    url(r'^auth/', include('social_django.urls', namespace='social')),
-    url(r'^$', views.home, name='home'),
     url(r'^detail/(?P<id>.+)/$', views.detail, name='detail'),
-    url(r'^$', home, name='home'),
+    url(r'^auth/', include('social_django.urls', namespace='social')),
+#    url(r'^$', home, name='home'),
 ]
