@@ -9,6 +9,7 @@
 			  <!-- How to add Google and Github OAuth in Django -->
 	  			{% if user.is_authenticated %}
 	  				<p>Hello, {{ user.username }}</p>
+	  				<p>Logout Link</p>
 	  			{% else %}
 	  				<a class="lead" href="{% url 'login' %}">Log in</a>
 	  			{% endif %}
