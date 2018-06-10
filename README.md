@@ -4,7 +4,7 @@ The purpose of the Astroplot project is democratizing investment activities from
 
 # brand
 
-![astroplot-logo](/web/img/astroplot-logo.png?raw=true "logo")
+![astroplot-logo](/web/static/img/astroplot-logo.png "logo")
 
 # algorithm
 
