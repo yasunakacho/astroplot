@@ -16,16 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url, include
 from django.urls import include, path
-from django.contrib.auth import views
+from django.contrib.auth import urls, logout
 from web.views import home
 from web import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
-    url(r'^login/$', views.login, name='login'),
-    url(r'^logout/$', views.logout, name='logout'),
     url(r'^detail/(?P<id>.+)/$', views.detail, name='detail'),
     url(r'^auth/', include('social_django.urls', namespace='social')),
+#    url(r'^auth/', include('django.contrib.auth.views.logout', namespace='auth')),
 #    url(r'^$', home, name='home'),
 ]

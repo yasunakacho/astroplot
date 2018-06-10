@@ -31,6 +31,7 @@ ALLOWED_HOSTS = [
     'space17.herokuapp.com',
     'www.space17.com',
     'localhost',
+    '127.0.0.1',
 ]
 
 
