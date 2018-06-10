@@ -2,7 +2,7 @@
 
 The purpose of the Astroplot project is democratizing investment activities from selected few to people like us who do not have deep financial knowledge. We believe that the latest machine learning techniques can help us to optimize our investment decisions.
 
-![astroplot-logo](/web/static/img/astroplot-logo.png "logo" width="600" height="600")
+![astroplot-logo](/web/static/img/astroplot-logo.png "logo")
 
 # algorithm
 
