@@ -41,6 +41,7 @@ def logout(request):
     return render(request, 'logout.html')
 
 def detail(request, id):
+#   print(id, 'this is id')
     #coinmarketcap
     coinmarketcap = Market()
     json_result = coinmarketcap.ticker(id, limit=10, convert='USD')
@@ -49,7 +50,7 @@ def detail(request, id):
             secrets.TWITTER_ACCESS_TOKEN,
             secrets.TWITTER_ACCESS_TOKEN_SECRET)
     search = t.search(q='#bitcoin',count=100)
-    cryptocurrency = Cryptocurrency.objects.get(name='IOTA')
+    cryptocurrency = Cryptocurrency.objects.get(name=id)
 #    cryptocurrency = Cryptocurrency.objects.get(name=json_result.name)
 #    cryptocurrency = Cryptocurrency.objects.filter(name=name)
     tweets = search['statuses']
