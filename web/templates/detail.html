@@ -3,6 +3,12 @@
 
 {% block page %}
     <div class="container">
+        <div class="panel panel-default panel-table">
+          <div class="panel-heading">
+            <a href="/"><h4>Astroplot Analytics</h4></a>
+            <br>
+          </div>
+        </div>
         <div class="card-deck">
             <div class="row mb-4">
                 <div class="card" style="width: 71.2rem;">
@@ -92,8 +98,7 @@
                             href="{{cryptocurrency.twitter}}"
                             data-width="350"
                             data-height="350"
-                            data-chrome="nofooter noborders"
-                            target="_blank">
+                            data-chrome="nofooter noborders">
                         Tweets by @{{json_result.name}}
                         </a>
                     </div>
