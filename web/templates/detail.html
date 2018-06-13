@@ -9,9 +9,11 @@
             <br>
           </div>
         </div>
+
         <div class="card-deck">
             <div class="row mb-4">
-                <div class="card" style="width: 71.2rem;">
+                <div class="col-md-12">
+                <div class="card">
                     <div class="card-header">
                         <h5>
                             {{cryptocurrency.name}}
@@ -22,9 +24,11 @@
                         <a href="{{cryptocurrency.website}}" class="btn btn-primary" target="_blank">Visit Website</a>
                     </div>
                 </div>
+                </div>
             </div>
             <div class="row mb-4">
-                <div class="card" col-md-8>
+                <div class="col-md-8">
+                <div class="card" style="height: 330px;">
                     <div class="card-header">
                         <h5>Price Chart</h5>
                     </div>
@@ -32,8 +36,9 @@
                         <p>{{json_result}}</p>
                     </div>
                 </div>
-
-                <div class="card" style="max-width: 24rem;">
+                </div>
+                <div class="col-md-4">
+                <div class="card">
                     <div class="card-header">
                         <h5>Price Alert</h5>
                     </div>
@@ -59,17 +64,20 @@
                         <button type="submit" class="btn btn-primary mb-2 center">Start Tracking</button>
                     </div>
                 </div>
-
+                </div>
             </div>
             <div class="row mb-4">
-                <div class="card" col-md-8>
-                    <div class="card-header">
-                        <h5>Growth Score Chart</h5>
-                    </div>
-                    <div class="card-body">
-                        <p>{{json_result}}</p>
+                <div class="col-sm-8">
+                    <div class="card" style="height: 455px;">
+                        <div class="card-header">
+                            <h5>Growth Score Chart</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>{{json_result}}</p>
+                        </div>
                     </div>
                 </div>
+
                 <!--
                 <div class="card" style="max-width: 24rem;">
                     <div class="card-header">
@@ -80,7 +88,8 @@
                     </div>
                 </div>
                 -->
-                <div class="card" style="max-width: 24rem;">
+                <div class="col-sm-4">
+                <div class="card">
                     <div class="card-header">
                         <h5>Tweets</h5>
                     </div>
@@ -96,12 +105,13 @@
                     -->
                         <a class="twitter-timeline"
                             href="{{cryptocurrency.twitter}}"
-                            data-width="350"
+                            data-width="400"
                             data-height="350"
                             data-chrome="nofooter noborders">
                         Tweets by @{{json_result.name}}
                         </a>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
