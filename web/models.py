@@ -27,4 +27,5 @@ class Price(models.Model):
     def __str__(self):
         price_data = []
         price_data = [self.coin, str(self.date), str(self.open)]
-        return price_data
+        #return price_data
+        return str(price_data)
