@@ -3,7 +3,7 @@
 
 {% block page %}
 
-  <div class="main-content container">
+  <div class="container">
 	  <div class="row">
 		  <div class="col-md-12">
 			  <!-- How to add Google and Github OAuth in Django -->
@@ -16,25 +16,24 @@
 	  </div>
       <div class="row">
         <div class="col-md-12">
-          <div class="panel panel-default panel-table">
-            <div class="panel-heading">
+          <div class="panel-heading">
               <h4>Astroplot Analytics</h4>
-			  <br>
-            </div>
-            <div class="panel-body">
-              <table id="table1" class="table table-striped table-hover">
+    		  <br>
+          </div>
+          <!--
+              <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th>CRYPTOCURRENCY</th>
-                    <th>GROWTH SCORE</th>
-                    <th>PRICE</th>
-                    <th>MARKET CAP</th>
-                    <th>24H CHANGE</th>
-                    <th>7D CHANGE</th>
-					{% if user.is_authenticated %}
-                    <th>ALERT</th>
-					{% else %}
-					{% endif %}
+                      <th scope="col">CRYPTOCURRENCY</th>
+                      <th scope="col">GROWTH SCORE</th>
+                      <th scope="col">PRICE</th>
+                      <th scope="col">MARKET CAP</th>
+                      <th scope="col">24H CHANGE</th>
+                      <th scope="col">7D CHANGE</th>
+    				  {% if user.is_authenticated %}
+                      <th>ALERT</th>
+    				  {% else %}
+    				  {% endif %}
                   </tr>
                 </thead>
                 <tbody>
@@ -44,26 +43,52 @@
                                 {% with 'img/'|add:coin.symbol|add:'.png' as image_static %}
                                     <img src="{% static image_static %}" alt="{{coin.symbol}}" height="24">&ensp;
                                 {% endwith %}
-                                <!--
-                                <img src="{% static 'img/btc.png' %}" alt="{{coin.symbol}}" height="24">&ensp;
-                                -->
                                 <a href="/detail/{{coin.id}}">{{coin.name}}</a>
-
                             </td>
                             <td>{{coin.symbol}}</td>
                             <td>&#36;{{coin.price_usd}}</td>
                             <td>&#36;{{coin.market_cap_usd}}</td>
                             <td>{{coin.percent_change_24h}}&#37;</td>
                             <td>{{coin.percent_change_7d}}&#37;</td>
-							{% if user.is_authenticated %}
+    						{% if user.is_authenticated %}
                             <td>YES/NO</td>
-							{% else %}
-							{% endif %}
+    						{% else %}
+    						{% endif %}
                         </tr>
                     {% endfor %}
                 </tbody>
               </table>
-            </div>
+          -->
+          <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
           </div>
         </div>
       </div>
