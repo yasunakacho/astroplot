@@ -26,14 +26,11 @@
                       <th scope="col">CRYPTOCURRENCY</th>
                       <th scope="col">GROWTH SCORE</th>
                       <th scope="col">PRICE</th>
-                      <div class="d-none d-sm-block">
-                          <th scope="col">MARKET CAP</th>
-                          <th scope="col">24H CHANGE</th>
-                          <th scope="col">7D CHANGE</th>
-        				  {% if user.is_authenticated %}
-                          <th scope="col">ALERT</th>
-                      </div>
-
+                      <th scope="col">MARKET CAP</th>
+                      <th scope="col">24H CHANGE</th>
+                      <th scope="col">7D CHANGE</th>
+    				  {% if user.is_authenticated %}
+                      <th scope="col">ALERT</th>
     				  {% else %}
     				  {% endif %}
                   </tr>
@@ -50,52 +47,20 @@
 
                             <td>{{coin.symbol}}</td>
                             <td>&#36;{{coin.price_usd}}</td>
-                            <td class="d-none d-sm-block">&#36;{{coin.market_cap_usd}}</td>
-                            <td class="d-none d-sm-block">{{coin.percent_change_24h}}&#37;</td>
-                            <td class="d-none d-sm-block">{{coin.percent_change_7d}}&#37;</td>
-    						{% if user.is_authenticated %}
-                            <td class="d-none d-sm-block">YES/NO</td>
+                            <div class="d-none d-md-block d-lg-none">
+                                <td>&#36;{{coin.market_cap_usd}}</td>
+                                <td>{{coin.percent_change_24h}}&#37;</td>
+                                <td>{{coin.percent_change_7d}}&#37;</td>
+        						{% if user.is_authenticated %}
+                                <td>YES/NO</td>
+                            </div>
     						{% else %}
     						{% endif %}
                         </tr>
                     {% endfor %}
                 </tbody>
               </table>
-          <!--
-
-          <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
--->
-
           </div>
         </div>
-      </div>
+    </div>
 {% endblock %}
