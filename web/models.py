@@ -18,8 +18,8 @@ class Price(models.Model):
     high = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.01)])
     low = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.01)])
     close = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.01)])
-    volume = models.PositiveIntegerField(validators=[MinValueValidator(1)])
-    marketcap = models.PositiveIntegerField(validators=[MinValueValidator(1)])
+    volume = models.CharField(max_length=100)
+    marketcap = models.CharField(max_length=100)
 
     class Meta:
         unique_together=(("coin","date"))
