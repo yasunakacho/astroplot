@@ -24,13 +24,13 @@
                 <thead>
                   <tr>
                       <th scope="col">CRYPTOCURRENCY</th>
-                      <th scope="col">GROWTH SCORE</th>
+                      <th scope="col"><div class="d-none d-sm-block">GROWTH SCORE</div></th>
                       <th scope="col">PRICE</th>
-                      <th scope="col">MARKET CAP</th>
-                      <th scope="col">24H CHANGE</th>
-                      <th scope="col">7D CHANGE</th>
+                      <th scope="col"><div class="d-none d-sm-block">MARKET CAP</div></th>
+                      <th scope="col"><div class="d-none d-sm-block">24H CHANGE</div></th>
+                      <th scope="col"><div class="d-none d-sm-block">7D CHANGE</div></th>
     				  {% if user.is_authenticated %}
-                      <th scope="col">ALERT</th>
+                      <th scope="col"><div class="d-none d-sm-block">ALERT</div></th>
     				  {% else %}
     				  {% endif %}
                   </tr>
@@ -45,15 +45,13 @@
                                 <a href="/detail/{{coin.id}}">{{coin.name}}</a>
                             </td>
 
-                            <td>{{coin.symbol}}</td>
+                            <td><div class="d-none d-sm-block">{{coin.symbol}}</div></td>
                             <td>&#36;{{coin.price_usd}}</td>
-                            <div class="d-none d-md-block d-lg-none">
-                                <td>&#36;{{coin.market_cap_usd}}</td>
-                                <td>{{coin.percent_change_24h}}&#37;</td>
-                                <td>{{coin.percent_change_7d}}&#37;</td>
-        						{% if user.is_authenticated %}
-                                <td>YES/NO</td>
-                            </div>
+                            <td><div class="d-none d-sm-block">&#36;{{coin.market_cap_usd}}</div></td>
+                            <td><div class="d-none d-sm-block">{{coin.percent_change_24h}}&#37;</div></td>
+                            <td><div class="d-none d-sm-block">{{coin.percent_change_7d}}&#37;</div></td>
+    						{% if user.is_authenticated %}
+                            <td><div class="d-none d-sm-block">YES/NO</div></td>
     						{% else %}
     						{% endif %}
                         </tr>
