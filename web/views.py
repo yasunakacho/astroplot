@@ -14,6 +14,7 @@ import os
 #import json
 #import settings
 
+
 # Create your views here.
 def home(request):
     coinmarketcap = Market()
