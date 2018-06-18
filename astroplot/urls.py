@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.conf.urls import url, include
 from django.urls import include, path
 from django.contrib.auth import urls, logout
-from web.views import home
+from web.views import home, logout
 from web import views
 
 urlpatterns = [
@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^detail/(?P<id>.+)/$', views.detail, name='detail'),
     url(r'^auth/', include('social_django.urls', namespace='social')),
+    url(r'^logout/', views.logout, name='logout'),
 #    url(r'^auth/', include('django.contrib.auth.views.logout', namespace='auth')),
 #    url(r'^$', home, name='home'),
 ]

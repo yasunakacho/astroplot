@@ -14,6 +14,9 @@ import os
 #import json
 #import settings
 
+from django.contrib import auth
+
+
 
 # Create your views here.
 def home(request):
@@ -39,7 +42,8 @@ def login(request):
     return render(request, 'login.html')
 
 def logout(request):
-    return render(request, 'logout.html')
+    auth.logout(request)
+    return render(request, 'home.html')
 
 def detail(request, id):
 #   print(id, 'this is id')
