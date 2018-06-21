@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from coinmarketcap import Market
 from twitter import Twitter
 from twython import Twython
@@ -36,14 +36,16 @@ def home(request):
             "percent_change_7d": j['percent_change_7d'],
         }
         result.append(result_line)
+
     return render(request, 'home.html',{'result':result})
 
-def login(request):
-    return render(request, 'login.html')
+#def login(request):
+#    return render(request, 'login.html')
 
 def logout(request):
     auth.logout(request)
-    return render(request, 'home.html')
+    #return render(request, 'home.html')
+    return redirect('/')
 
 def detail(request, id):
 #   print(id, 'this is id')
