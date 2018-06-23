@@ -6,10 +6,12 @@ dj-database-url==0.5.0
 Django==2.0.4
 django-secrets==1.0.1
 djangorestframework==3.8.2
+docopt==0.4.0
 future==0.16.0
 gunicorn==19.8.0
 httplib2==0.11.3
 idna==2.6
+mailchimp==2.0.9
 oauth2==1.9.0.post1
 oauthlib==2.0.7
 psycopg2==2.7.4
