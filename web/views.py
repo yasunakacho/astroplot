@@ -61,16 +61,18 @@ def detail(request, id):
 #    cryptocurrency = Cryptocurrency.objects.get(name=json_result.name)
 #    cryptocurrency = Cryptocurrency.objects.filter(name=name)
 
-    date = Price.date
-    price = Price.open
+    #date = Price.date
+    #price = Price.open
+    #get,filter,all
+    #the next challnge is coin_id=id
     prices = Price.objects.all()
-    prices2 = Price.objects.get(id=1)
+    prices2 = Price.objects.filter(coin_id=1)
     print(prices2, 'this is prices')
 
     tweets = search['statuses']
     #for tweet in tweets:
-    #    print(tweet['id_str'], '\n', tweet['text'], '\n\n\n'),'tweet': tweet,
-    return render(request, 'detail.html', {'json_result':json_result[0], 'cryptocurrency':cryptocurrency, 'date':date, 'price':price})
+    #    print(tweet['id_str'], '\n', tweet['text'], '\n\n\n'),'tweet': tweet,, 'date':date, 'price':price
+    return render(request, 'detail.html', {'json_result':json_result[0], 'cryptocurrency':cryptocurrency})
 
     """
     # ...

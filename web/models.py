@@ -25,7 +25,9 @@ class Price(models.Model):
         unique_together=(("coin","date"))
 
     def __str__(self):
-        price_data = []
-        price_data = [self.coin, str(self.date), str(self.open)]
+        #price_data = []
+        #price_data = [str(self.coin), str(self.date), str(self.open)]
         #return price_data
-        return str(price_data)
+        #return str(price_data)
+        #return '%s %s'%(self.coin, self.date, self.open)
+        return str(self.open)
