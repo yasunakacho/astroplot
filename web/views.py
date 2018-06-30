@@ -47,6 +47,7 @@ def logout(request):
     #return render(request, 'home.html')
     return redirect('/')
 
+#how did we define id as a coin name?
 def detail(request, id):
 #   print(id, 'this is id')
     #coinmarketcap
@@ -58,16 +59,16 @@ def detail(request, id):
             secrets.TWITTER_ACCESS_TOKEN_SECRET)
     search = t.search(q='#bitcoin',count=100)
     cryptocurrency = Cryptocurrency.objects.get(name=id)
-#    cryptocurrency = Cryptocurrency.objects.get(name=json_result.name)
-#    cryptocurrency = Cryptocurrency.objects.filter(name=name)
+    #cryptocurrency = Cryptocurrency.objects.get(name=json_result.name)
+    #cryptocurrency = Cryptocurrency.objects.filter(name=name)
     print(cryptocurrency, 'this is coin')
     #date = Price.date
     #price = Price.open
     #get,filter,all
     #the next challnge is coin_id=id
-    prices = Price.objects.all()
-    prices2 = Price.objects.filter(coin_id=1)
-    print(prices2, 'this is prices')
+    #price1 = Price.objects.all()
+    price = Price.objects.filter(coin_id=cryptocurrency.id)
+    print(price, 'this is prices')
 
     tweets = search['statuses']
     #for tweet in tweets:

@@ -36,8 +36,8 @@ class Price(models.Model):
 class Alert(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     coin = models.ForeignKey(Cryptocurrency, on_delete=models.CASCADE)
-    high_price = models.IntegerField()
-    low_price  = models.IntegerField()
+    high_price = models.IntegerField(null=True, blank=True)
+    low_price  = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return self.coin
+        return str(self.user)
