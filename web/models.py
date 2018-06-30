@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Cryptocurrency(models.Model):
@@ -31,3 +32,12 @@ class Price(models.Model):
         #return str(price_data)
         #return '%s %s'%(self.coin, self.date, self.open)
         return str(self.open)
+
+class Alert(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    coin = models.ForeignKey(Cryptocurrency, on_delete=models.CASCADE)
+    high_price = models.IntegerField()
+    low_price  = models.IntegerField()
+
+    def __str__(self):
+        return self.coin
