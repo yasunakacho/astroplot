@@ -60,7 +60,7 @@ def detail(request, id):
     cryptocurrency = Cryptocurrency.objects.get(name=id)
 #    cryptocurrency = Cryptocurrency.objects.get(name=json_result.name)
 #    cryptocurrency = Cryptocurrency.objects.filter(name=name)
-
+    print(cryptocurrency, 'this is coin')
     #date = Price.date
     #price = Price.open
     #get,filter,all
