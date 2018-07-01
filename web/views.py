@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from coinmarketcap import Market
 from twitter import Twitter
 from twython import Twython
-from .models import Cryptocurrency, Price
+from .models import Cryptocurrency, Price, Alert
 
 import oauth2
 import secrets
@@ -68,12 +68,14 @@ def detail(request, id):
     #the next challnge is coin_id=id
     #price1 = Price.objects.all()
     price = Price.objects.filter(coin_id=cryptocurrency.id)
-    print(price, 'this is prices')
+    list_price = list(price)
+    #price = Price.objects.get(coin_id=1)
+    print(list_price, 'this is prices')
 
     tweets = search['statuses']
     #for tweet in tweets:
     #    print(tweet['id_str'], '\n', tweet['text'], '\n\n\n'),'tweet': tweet,, 'date':date, 'price':price
-    return render(request, 'detail.html', {'json_result':json_result[0], 'cryptocurrency':cryptocurrency})
+    return render(request, 'detail.html', {'json_result':json_result[0], 'cryptocurrency':cryptocurrency, 'price':price})
 
     """
     # ...

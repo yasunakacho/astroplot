@@ -18,7 +18,10 @@
                         </h5>
                     </div>
                     <div class="card-body">
+                         <!--
                         <p class="card-text">{{cryptocurrency.description}}</p>
+                        -->
+                        <p class="card-text">{{price}}</p>
                         <a href="{{cryptocurrency.website}}" class="btn btn-primary" target="_blank">Visit Website</a>
                     </div>
                 </div>
@@ -153,4 +156,55 @@
             </div>
         </div>
     </div>
+
+    <canvas id="time-series" width="800" height="800"></canvas>
+    <script>
+    var labels = [];
+    var prices = [];
+        function(data){
+            labels = detail.date;
+            data = detail.price;
+        }
+    new Chart(document.getElementById("time-series"), {
+      type: 'line',
+      data: {
+        labels: label,
+        datasets: [{
+            data: data,
+            label: "Bitcoin",
+            borderColor: "#3e95cd",
+            fill: false
+          }
+        ]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Bitcoin price since June 16, 2013'
+        }
+      }
+    });
+    </script>
+    <canvas id="line-chart" width="800" height="800"></canvas>
+    <script>
+    new Chart(document.getElementById("line-chart"), {
+      type: 'line',
+      data: {
+        labels: ['2013-6-16','2013-6-17','2013-6-18','2013-6-19','2013-6-20','2013-6-21','2013-6-22','2013-6-23','2013-6-24','2013-6-25'],
+        datasets: [{
+            data: [99.8,99.9,101.95,107.05,108.25,111.29,109.5,108.2,107.9,102.09],
+            label: "Bitcoin",
+            borderColor: "#3e95cd",
+            fill: false
+          }
+        ]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'World population per region (in millions)'
+        }
+      }
+    });
+    </script>
 {% endblock %}
