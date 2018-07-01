@@ -68,14 +68,29 @@ def detail(request, id):
     #the next challnge is coin_id=id
     #price1 = Price.objects.all()
     price = Price.objects.filter(coin_id=cryptocurrency.id)
-    list_price = list(price)
+    price_list = list(price)
+#    result = []
+#    for data in price_list:
+#        result_line = {
+#            "date": data['date'],
+#            "open": data['open'],
+#        }
+#        result.append(result_line)
+
+    price_open = [float(a_price.open) for a_price in price_list]
+    price_date = [str(a_price.date) for a_price in price_list]
+
     #price = Price.objects.get(coin_id=1)
-    print(list_price, 'this is prices')
+    #print(list_price, 'this is prices')
+#    print(price_open, 'this is prices')
+#    print(price_date, 'this is dates')
+    #print (result, 'this is dates')
+    #print (result.open, 'this is open')
 
     tweets = search['statuses']
     #for tweet in tweets:
     #    print(tweet['id_str'], '\n', tweet['text'], '\n\n\n'),'tweet': tweet,, 'date':date, 'price':price
-    return render(request, 'detail.html', {'json_result':json_result[0], 'cryptocurrency':cryptocurrency, 'price':price})
+    return render(request, 'detail.html', {'json_result':json_result[0], 'cryptocurrency':cryptocurrency, 'price_open':price_open[0:20], 'price_date':price_date[0:20]})
 
     """
     # ...

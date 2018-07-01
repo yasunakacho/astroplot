@@ -18,10 +18,12 @@
                         </h5>
                     </div>
                     <div class="card-body">
-                         <!--
+                        <!--
                         <p class="card-text">{{cryptocurrency.description}}</p>
-                        -->
-                        <p class="card-text">{{price}}</p>
+                    -->
+
+                        <p class="card-text">{{price_open}}{{price_date}}</p>
+
                         <a href="{{cryptocurrency.website}}" class="btn btn-primary" target="_blank">Visit Website</a>
                     </div>
                 </div>
@@ -156,7 +158,6 @@
             </div>
         </div>
     </div>
-
     <canvas id="time-series" width="800" height="800"></canvas>
     <script>
     var labels = [];
@@ -187,12 +188,16 @@
     </script>
     <canvas id="line-chart" width="800" height="800"></canvas>
     <script>
+    console.log(typeof {{price_open}});
+    let data = {{price_open}};
+    let date = "{{price_date}}";
+    console.log(date, 'date');
     new Chart(document.getElementById("line-chart"), {
       type: 'line',
       data: {
-        labels: ['2013-6-16','2013-6-17','2013-6-18','2013-6-19','2013-6-20','2013-6-21','2013-6-22','2013-6-23','2013-6-24','2013-6-25'],
+        labels: data,
         datasets: [{
-            data: [99.8,99.9,101.95,107.05,108.25,111.29,109.5,108.2,107.9,102.09],
+            data: data,
             label: "Bitcoin",
             borderColor: "#3e95cd",
             fill: false
