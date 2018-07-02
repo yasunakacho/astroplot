@@ -82,8 +82,8 @@ def detail(request, id):
 
     #price = Price.objects.get(coin_id=1)
     #print(list_price, 'this is prices')
-#    print(price_open, 'this is prices')
-#    print(price_date, 'this is dates')
+    print(price_open[0:20], 'this is prices')
+    print(price_date[0:20], 'this is dates')
     #print (result, 'this is dates')
     #print (result.open, 'this is open')
 
