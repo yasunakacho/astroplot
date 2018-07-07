@@ -80,6 +80,7 @@ def detail(request, id):
     price_open = [float(a_price.open) for a_price in price_list]
     price_date = [str(a_price.date) for a_price in price_list]
 
+    #this line is simply trying to update sqlite
     #price = Price.objects.get(coin_id=1)
     #print(list_price, 'this is prices')
     print(price_open[0:20], 'this is prices')
