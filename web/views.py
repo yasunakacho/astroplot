@@ -3,6 +3,7 @@ from coinmarketcap import Market
 from twitter import Twitter
 from twython import Twython
 from .models import Cryptocurrency, Price, Alert
+from django.contrib.auth.models import User
 
 import oauth2
 import secrets
@@ -134,4 +135,19 @@ def detail(request, id):
     TWITTER_ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET')
     """
 
-#print(result)
+def alert(request, id):
+    user_id = request.POST.get('user_id')
+    coin_id = request.POST.get('coin_id')
+    high_price = request.POST.get('high_price')
+    low_price = request.POST.get('low_price')
+    # TODO : debug
+    alert_count = Alert.objects.filter(user=user_id) \
+                      .filter(coin=coin_id).count()
+    alert_count = str(alert_count)
+    #messages.sccuss(request, alert_count)
+    cc = Cryptocurrency.objects.get(id=id)
+    return redirect(to='/detail/'+cc.name+alert_count)
+
+
+
+

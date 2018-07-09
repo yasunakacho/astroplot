@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
     url(r'^detail/(?P<id>.+)/$', views.detail, name='detail'),
+    url(r'^alert/(?P<id>.+)/$', views.alert, name='alert'),
     url(r'^auth/', include('social_django.urls', namespace='social')),
     url(r'^logout/', views.logout, name='logout'),
 #    url(r'^auth/', include('django.contrib.auth.views.logout', namespace='auth')),
