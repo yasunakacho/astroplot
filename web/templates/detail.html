@@ -186,7 +186,7 @@
       }
     });
     </script>
-    <canvas id="line-chart" width="800" height="800"></canvas>
+    <canvas id="line-chart" width="400" height="400"></canvas>
     <script>
     console.log(typeof {{price_open}});
     let data = {{price_open}};
@@ -199,8 +199,11 @@
         datasets: [{
             data: data,
             label: "Bitcoin",
-            borderColor: "#3e95cd",
-            fill: false
+            borderColor: "rgba(54, 162, 235, 1)",
+            backgroundColor: "rgba(54, 162, 235, 0.2)",
+            borderWidth: 2,
+            fill: true,
+
           }
         ]
       },
