@@ -18,12 +18,10 @@
                         </h5>
                     </div>
                     <div class="card-body">
-                        <!--
                         <p class="card-text">{{cryptocurrency.description}}</p>
-                    -->
-
+<!--
                         <p class="card-text">{{price_open}}{{price_date}}</p>
-
+-->
                         <a href="{{cryptocurrency.website}}" class="btn btn-primary" target="_blank">Visit Website</a>
                     </div>
                 </div>
@@ -36,47 +34,37 @@
                     <h5>Price Chart</h5>
                 </div>
                 <div class="card-body">
-                    <canvas id="myChart" width="400" height="400"></canvas>
-                        <script>
-                        var ctx = document.getElementById("myChart").getContext('2d');
-                        ctx.canvas.height = 360;
-                        var myChart = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                                datasets: [{
-                                    label: '# of Votes',
-                                    data: [12, 19, 3, 5, 2, 3],
-                                    backgroundColor: [
-                                        'rgba(255, 99, 132, 0.2)',
-                                        'rgba(54, 162, 235, 0.2)',
-                                        'rgba(255, 206, 86, 0.2)',
-                                        'rgba(75, 192, 192, 0.2)',
-                                        'rgba(153, 102, 255, 0.2)',
-                                        'rgba(255, 159, 64, 0.2)'
-                                    ],
-                                    borderColor: [
-                                        'rgba(255,99,132,1)',
-                                        'rgba(54, 162, 235, 1)',
-                                        'rgba(255, 206, 86, 1)',
-                                        'rgba(75, 192, 192, 1)',
-                                        'rgba(153, 102, 255, 1)',
-                                        'rgba(255, 159, 64, 1)'
-                                    ],
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                                scales: {
-                                    yAxes: [{
-                                        ticks: {
-                                            beginAtZero:true
-                                        }
-                                    }]
-                                }
-                            }
-                        });
-                        </script>
+                    <canvas id="line-chart" width="400" height="190"></canvas>
+                    <script>
+                    console.log(typeof {{price_open}});
+                    let data = {{price_open}};
+                    let date = "{{price_date}}";
+                    console.log(date, 'date');
+                    new Chart(document.getElementById("line-chart"), {
+                      type: 'line',
+                      data: {
+                        labels: data,
+                        datasets: [{
+                            data: data,
+                            label: "{{cryptocurrency.name}}",
+                            borderColor: "rgba(54, 162, 235, 1)",
+                            backgroundColor: "rgba(54, 162, 235, 0.2)",
+                            borderWidth: 2,
+                            fill: true,
+                            lineTension: 0,
+                            pointRadius: 0,
+
+                          }
+                        ]
+                      },
+                      options: {
+                        title: {
+                          display: true,
+                          text: 'Historical Data (USD)'
+                        }
+                      }
+                    });
+                    </script>
                 </div>
             </div>
             </div>
@@ -87,7 +75,7 @@
                 </div>
                 <div class="card-body">
                     {% if user.is_authenticated %}
-                               <!-- Google Logined --> 
+                               <!-- Google Logined -->
                                 <p>Now: &#36;{{json_result.price_usd}}</p>
                     <form action="/alert/{{cryptocurrency.id}}/" method="post">
                         {% csrf_token %}
@@ -105,11 +93,11 @@
                         <input type="hidden" id="user_id" name="user_id" value="{{user.id}}">
                         <button type="submit" class="btn btn-primary mb-2 center" onclick="return confirm('Are you sure?')">Start Tracking</button>
                     </form>
-                               <!-- Google Logined --> 
+                               <!-- Google Logined -->
                     {% else %}
-                               <!-- Not Login --> 
+                               <!-- Not Login -->
                     <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
-                               <!-- Not Login --> 
+                               <!-- Not Login -->
                     {% endif %}
                 </div>
             </div>
@@ -164,61 +152,4 @@
             </div>
         </div>
     </div>
-    <canvas id="time-series" width="800" height="800"></canvas>
-    <script>
-    var labels = [];
-    var prices = [];
-        function(data){
-            labels = detail.date;
-            data = detail.price;
-        }
-    new Chart(document.getElementById("time-series"), {
-      type: 'line',
-      data: {
-        labels: label,
-        datasets: [{
-            data: data,
-            label: "Bitcoin",
-            borderColor: "#3e95cd",
-            fill: false
-          }
-        ]
-      },
-      options: {
-        title: {
-          display: true,
-          text: 'Bitcoin price since June 16, 2013'
-        }
-      }
-    });
-    </script>
-    <canvas id="line-chart" width="400" height="400"></canvas>
-    <script>
-    console.log(typeof {{price_open}});
-    let data = {{price_open}};
-    let date = "{{price_date}}";
-    console.log(date, 'date');
-    new Chart(document.getElementById("line-chart"), {
-      type: 'line',
-      data: {
-        labels: data,
-        datasets: [{
-            data: data,
-            label: "Bitcoin",
-            borderColor: "rgba(54, 162, 235, 1)",
-            backgroundColor: "rgba(54, 162, 235, 0.2)",
-            borderWidth: 2,
-            fill: true,
-
-          }
-        ]
-      },
-      options: {
-        title: {
-          display: true,
-          text: 'World population per region (in millions)'
-        }
-      }
-    });
-    </script>
 {% endblock %}
