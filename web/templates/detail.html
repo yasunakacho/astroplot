@@ -79,6 +79,7 @@
                         </script>
                 </div>
             </div>
+            
             </div>
             <div class="col-md-4">
             <div class="card mb-4" style="height: 400px;">
@@ -87,7 +88,7 @@
                 </div>
                 <div class="card-body">
                     {% if user.is_authenticated %}
-                               <!-- Google Logined --> 
+                               <!-- Google Logined -->
                                 <p>Now: &#36;{{json_result.price_usd}}</p>
                     <form action="/alert/{{cryptocurrency.id}}/" method="post">
                         {% csrf_token %}
@@ -105,11 +106,11 @@
                         <input type="hidden" id="user_id" name="user_id" value="{{user.id}}">
                         <button type="submit" class="btn btn-primary mb-2 center" onclick="return confirm('Are you sure?')">Start Tracking</button>
                     </form>
-                               <!-- Google Logined --> 
+                               <!-- Google Logined -->
                     {% else %}
-                               <!-- Not Login --> 
+                               <!-- Not Login -->
                     <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
-                               <!-- Not Login --> 
+                               <!-- Not Login -->
                     {% endif %}
                 </div>
             </div>
