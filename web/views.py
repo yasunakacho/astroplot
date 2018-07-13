@@ -3,6 +3,10 @@ from coinmarketcap import Market
 from twitter import Twitter
 from twython import Twython
 from .models import Cryptocurrency, Price, Alert
+
+
+from .forms import AlertForm
+
 from django.contrib.auth.models import User
 
 import oauth2
@@ -90,50 +94,18 @@ def detail(request, id):
     #print (result.open, 'this is open')
 
     tweets = search['statuses']
-    #for tweet in tweets:
-    #    print(tweet['id_str'], '\n', tweet['text'], '\n\n\n'),'tweet': tweet,, 'date':date, 'price':price
-    return render(request, 'detail.html', {'json_result':json_result[0], 'cryptocurrency':cryptocurrency, 'price_open':price_open[0:20], 'price_date':price_date[0:20]})
+    create_form = AlertForm()
+    create_form.fields['user'].initial = request.user.id
+    create_form.fields['coin'].initial = cryptocurrency.id
 
-    """
-    # ...
-    twitter = Twitter(
-      auth=OAuth(token, token_key, con_secret, con_secret_key))
+    params = {'json_result':json_result[0],
+              'cryptocurrency':cryptocurrency,
+              'price_open':price_open[0:20],
+              'price_date':price_date[0:20],
+              'create_form':create_form,
+             }
+    return render(request, 'detail.html', params)
 
-    api = twitter.Api(consumer_key=CONSUMER_KEY,
-    consumer_secret=CONSUMER_SECRET,
-    access_token_key=ACCESS_TOKEN,
-    access_token_secret=ACCESS_SECRET)
-    home_timeline = api.VerifyCredentials()
-
-
-    def oauth_req(url, key, secret, http_method="GET", post_body="", http_headers=None):
-        consumer = oauth2.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
-        token = oauth2.Token(key=key, secret=secret)
-        client = oauth2.Client(consumer, token)
-        resp, content = client.request( url, method=http_method, body=post_body, headers=http_headers )
-        return content
-
-    home_timeline = oauth_req('https://api.twitter.com/1.1/statuses/home_timeline.json', ACCESS_TOKEN, ACCESS_SECRET, "GET", "A" )
-
-    twitter = OAuth1Session(settings.CONSUMER_KEY, settings.CONSUMER_SECRET, settings.ACCESS_TOKEN, settings.ACCESS_TOKEN_SECRET)
-
-    params = {}
-    req = twitter.get("https://api.twitter.com/1.1/statuses/home_timeline.json", params = params)
-
-    home_timeline = json.loads(req.text)
-    return render(request, 'detail.html', {'json_result':json_result[0], 'home_timeline':home_timeline})
-    """
-    """
-    t = Twython(app_key=TWITTER_APP_KEY,
-            app_secret=TWITTER_APP_KEY_SECRET,
-            oauth_token=TWITTER_ACCESS_TOKEN,
-            oauth_token_secret=TWITTER_ACCESS_TOKEN_SECRET)
-
-    TWITTER_APP_KEY = os.environ.get('TWITTER_APP_KEY')
-    TWITTER_APP_KEY_SECRET = os.environ.get('TWITTER_APP_KEY_SECRET')
-    TWITTER_ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN')
-    TWITTER_ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET')
-    """
 
 def alert(request, id):
     user_id = request.POST.get('user_id')

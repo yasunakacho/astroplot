@@ -80,18 +80,7 @@
                                 <p>Now: &#36;{{json_result.price_usd}}</p>
                     <form action="/alert/{{cryptocurrency.id}}/" method="post">
                         {% csrf_token %}
-                        <div class="form-row mb-3">
-                            <div class="form-group col-md-6">
-                                <p>When Price is Above</p>
-                                <input type="number" class="form-control" id="high_price" name="high_price" placeholder="10000">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <p>When Price is Below</p>
-                                <input type="number" class="form-control" id="low_price" name="low_price" placeholder="1000">
-                            </div>
-                        </div>
-                        <input type="hidden" id="coin_id" name="coin_id" value="{{cryptocurrency.id}}">
-                        <input type="hidden" id="user_id" name="user_id" value="{{user.id}}">
+                        {{create_form}}
                         <button type="submit" class="btn btn-primary mb-2 center" onclick="return confirm('Are you sure?')">Start Tracking</button>
                     </form>
                                <!-- Google Logined -->
