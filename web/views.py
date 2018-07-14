@@ -3,6 +3,8 @@ from coinmarketcap import Market
 from twitter import Twitter
 from twython import Twython
 from .models import Cryptocurrency, Price, Alert
+from datetime import date, datetime, timedelta
+
 
 
 from .forms import AlertForm
@@ -83,7 +85,14 @@ def detail(request, id):
 #        result.append(result_line)
 
     price_open = [float(a_price.open) for a_price in price_list]
-    price_date = [str(a_price.date) for a_price in price_list]
+    price_date = ["{:'%Y-%m-%d'}".format(a_price.date) for a_price in price_list]
+
+    # str to date
+    #date_str = 'Jun 16, 2018'
+    #dt = datetime.strptime(data_str, '%b %d, %Y')
+    #dt_formatted = str(dt.year) + '-' + str(dt.month) + '-' + str(dt.day)
+    #=> 2018-6-16
+    #https://github.com/kaeken1jp/snippets/blob/master/python.md
 
     #this line is simply trying to update sqlite
     #price = Price.objects.get(coin_id=1)
@@ -100,8 +109,8 @@ def detail(request, id):
 
     params = {'json_result':json_result[0],
               'cryptocurrency':cryptocurrency,
-              'price_open':price_open[0:20],
-              'price_date':price_date[0:20],
+              'price_open':price_open[0:31],
+              'price_date':price_date[0:31],
               'create_form':create_form,
              }
     return render(request, 'detail.html', params)
@@ -119,7 +128,3 @@ def alert(request, id):
     #messages.sccuss(request, alert_count)
     cc = Cryptocurrency.objects.get(id=id)
     return redirect(to='/detail/'+cc.name+alert_count)
-
-
-
-

@@ -38,12 +38,14 @@
                     <script>
                     console.log(typeof {{price_open}});
                     let data = {{price_open}};
-                    let date = "{{price_date}}";
+                    {% autoescape off %}
+                    let date = {{price_date}}.reverse();
+                    {% endautoescape %}
                     console.log(date, 'date');
                     new Chart(document.getElementById("line-chart"), {
                       type: 'line',
                       data: {
-                        labels: data,
+                        labels: date,
                         datasets: [{
                             data: data,
                             label: "{{cryptocurrency.name}}",
@@ -53,6 +55,7 @@
                             fill: true,
                             lineTension: 0,
                             pointRadius: 0,
+                            reverse:true,
 
                           }
                         ]
@@ -67,7 +70,7 @@
                     </script>
                 </div>
             </div>
-            
+
             </div>
             <div class="col-md-4">
             <div class="card mb-4" style="height: 400px;">
