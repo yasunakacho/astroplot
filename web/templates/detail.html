@@ -39,7 +39,7 @@
                     console.log(typeof {{price_open}});
                     let data = {{price_open}};
                     {% autoescape off %}
-                    let date = {{price_date}}.reverse();
+                    let date = {{price_date}}.sort();
                     {% endautoescape %}
                     console.log(date, 'date');
                     new Chart(document.getElementById("line-chart"), {
@@ -56,7 +56,6 @@
                             lineTension: 0,
                             pointRadius: 0,
                             reverse:true,
-
                           }
                         ]
                       },
