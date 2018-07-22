@@ -74,7 +74,7 @@ def detail(request, id):
     #get,filter,all
     #the next challnge is coin_id=id
     #price1 = Price.objects.all()
-    price = Price.objects.filter(coin_id=cryptocurrency.id)
+    price = Price.objects.filter(coin_id=cryptocurrency.id, order_by='desc')
     price_list = list(price)
 #    result = []
 #    for data in price_list:
