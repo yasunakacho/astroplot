@@ -74,7 +74,8 @@ def detail(request, id):
     #get,filter,all
     #the next challnge is coin_id=id
     #price1 = Price.objects.all()
-    price = Price.objects.filter(coin_id=cryptocurrency.id, order_by='desc')
+    price = Price.objects.filter(coin_id=cryptocurrency.id).order_by('-date')
+#    import pdb; pdb.set_trace()
     price_list = list(price)
 #    result = []
 #    for data in price_list:
