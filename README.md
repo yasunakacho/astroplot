@@ -29,7 +29,7 @@ Without dedicated contributions from communities, we are not able to come this f
 
 **How to contribute**
 1. install virtualenv in the local computer
-2. install [the project virtualenv](https://www.dropbox.com/s/89r8j89ry68itb8/virtualenv.zip?dl=0 ) in the local 
+2. install [the project virtualenv](https://www.dropbox.com/s/89r8j89ry68itb8/virtualenv.zip?dl=0 ) in the local
 3. clone the latest git project
 4. git log (if this doesn't work then)
     a. git fetch --all
@@ -38,6 +38,7 @@ Without dedicated contributions from communities, we are not able to come this f
 6. brew install postgresql
 7. python manage.py migrate
 8. python manage.py runserver
+9. 
 
 # reference
 Special thanks to the articles that let us explore the frontiers of using machine learning to predict the cryptocurrency prices:
