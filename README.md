@@ -38,7 +38,7 @@ Without dedicated contributions from communities, we are not able to come this f
 6. brew install postgresql
 7. python manage.py migrate
 8. python manage.py runserver
-9. 
+
 
 # reference
 Special thanks to the articles that let us explore the frontiers of using machine learning to predict the cryptocurrency prices:
