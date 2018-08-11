@@ -118,14 +118,15 @@ def detail(request, id):
 
 
 def alert(request, id):
-    user_id = request.POST.get('user_id')
-    coin_id = request.POST.get('coin_id')
+    user_id = request.POST.get('user')
+    coin_id = request.POST.get('coin')
     high_price = request.POST.get('high_price')
     low_price = request.POST.get('low_price')
     # TODO : debug
     alert_count = Alert.objects.filter(user=user_id) \
                       .filter(coin=coin_id).count()
     alert_count = str(alert_count)
+    print(alert_count)
     #messages.sccuss(request, alert_count)
     cc = Cryptocurrency.objects.get(id=id)
-    return redirect(to='/detail/'+cc.name+alert_count)
+    return redirect(to='/detail/'+cc.name)
