@@ -102,7 +102,42 @@
                         <h5>Growth Score Chart</h5>
                     </div>
                     <div class="card-body">
+                        <!--
                         <p>{{json_result}}</p>
+                        -->
+                        <canvas id="line-chart" width="400" height="190"></canvas>
+                        <script>
+                        console.log(typeof {{price_open}});
+                        let data = {{price_open}};
+                        {% autoescape off %}
+                        let date = {{price_date}}.sort();
+                        {% endautoescape %}
+                        console.log(date, 'date');
+                        new Chart(document.getElementById("line-chart"), {
+                          type: 'line',
+                          data: {
+                            labels: date,
+                            datasets: [{
+                                data: data,
+                                label: "{{cryptocurrency.name}}",
+                                borderColor: "rgba(54, 162, 235, 1)",
+                                backgroundColor: "rgba(54, 162, 235, 0.2)",
+                                borderWidth: 2,
+                                fill: true,
+                                lineTension: 0,
+                                pointRadius: 0,
+                                reverse:true,
+                              }
+                            ]
+                          },
+                          options: {
+                            title: {
+                              display: true,
+                              text: 'Historical Data (USD)'
+                            }
+                          }
+                        });
+                        </script>
                     </div>
                 </div>
             </div>
