@@ -34,7 +34,7 @@
                     <h5>Price Chart</h5>
                 </div>
                 <div class="card-body">
-                    <canvas id="line-chart" width="400" height="190"></canvas>
+                    <canvas id="price-chart" width="400" height="190"></canvas>
                     <script>
                     console.log(typeof {{price_open}});
                     let data = {{price_open}};
@@ -42,7 +42,7 @@
                     let date = {{price_date}}.sort();
                     {% endautoescape %}
                     console.log(date, 'date');
-                    new Chart(document.getElementById("line-chart"), {
+                    new Chart(document.getElementById("price-chart"), {
                       type: 'line',
                       data: {
                         labels: date,
@@ -103,8 +103,45 @@
                     <div class="card-header">
                         <h5>Growth Score Chart</h5>
                     </div>
+                    <!--
                     <div class="card-body">
                         <p>{{json_result}}</p>
+                    </div>
+                    -->
+                    <div class="card-body">
+                        <canvas id="growth-chart" width="400" height="190"></canvas>
+                        <script>
+                        let growthData = {{price_open}};
+                        {% autoescape off %}
+                        let growthDate = {{price_date}}.sort();
+                        {% endautoescape %}
+                        new Chart(document.getElementById("growth-chart"), {
+                          type: 'line',
+                          data: {
+                            labels: growthDate,
+                            datasets: [{
+                                data: growthData,
+                                label: "{{cryptocurrency.name}}",
+                                borderColor: "rgba(255, 159, 64, 1)",
+                                backgroundColor: "rgba(255, 159, 64, 0.2)",
+                                borderWidth: 2,
+                                fill: true,
+                                lineTension: 0,
+                                pointRadius: 0,
+                                reverse:true,
+                              }
+                            ]
+                          },
+                          options: {
+                              title: {
+                                display: true,
+                                text: 'Historical Data (USD)'
+                            },
+                              responsive: true,
+                              maintainAspectRatio: false
+                          }
+                        });
+                        </script>
                     </div>
                 </div>
             </div>
