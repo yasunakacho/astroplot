@@ -79,20 +79,17 @@
                     <h5>Price Alert</h5>
                 </div>
                 <div class="card-body">
-                    {% if user.is_authenticated %}
-                               <!-- Google Logined -->
-                                <p>Now: &#36;{{json_result.price_usd}}</p>
+                    <h5 class="card-title">Now: &#36;{{json_result.price_usd}}</h5>
                     <form action="/alert/{{cryptocurrency.id}}/" method="post">
                         {% csrf_token %}
                         {{create_form}}
-                        <button type="submit" class="btn btn-primary mb-2 center" onclick="return confirm('Are you sure?')">Start Tracking</button>
+                        <p class="card-text">Get advanced alerts based on Price and Growth Score.</p>
+                        {% if user.is_authenticated %}
+                            <button type="submit" class="btn btn-primary mb-2 center" onclick="return confirm('Are you sure?')">Start Tracking</button>
+                        {% else %}
+                            <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-primary">Login with Google</a>
+                        {% endif %}
                     </form>
-                               <!-- Google Logined -->
-                    {% else %}
-                               <!-- Not Login -->
-                    <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
-                               <!-- Not Login -->
-                    {% endif %}
                 </div>
             </div>
             </div>
