@@ -22,6 +22,8 @@ import os
 #import settings
 
 from django.contrib import auth
+import requests
+from .symbols import CRYPTO_NAME_TO_SYMBOL
 
 
 
@@ -68,7 +70,6 @@ def detail(request, id):
     cryptocurrency = Cryptocurrency.objects.get(name=id)
     #cryptocurrency = Cryptocurrency.objects.get(name=json_result.name)
     #cryptocurrency = Cryptocurrency.objects.filter(name=name)
-    print(cryptocurrency, 'this is coin')
     #date = Price.date
     #price = Price.open
     #get,filter,all
@@ -107,6 +108,25 @@ def detail(request, id):
     create_form = AlertForm()
     create_form.fields['user'].initial = request.user.id
     create_form.fields['coin'].initial = cryptocurrency.id
+
+    ########################################################
+    # Sample code to render chart from the API reuslt
+    # Comment out the block for normal functioning
+    symbol = CRYPTO_NAME_TO_SYMBOL[cryptocurrency.name]
+    coinmarketcap_url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
+    params = {'symbol': symbol}
+    headers = {'X-CMC_PRO_API_KEY': '93b1776a-1c2f-4795-a84f-3dc198c3a63e'}
+    r = requests.get(coinmarketcap_url, params=params, headers=headers)
+    result = r.json()
+    usd_quote = result['data'][symbol]['quote']['USD']
+    price = usd_quote['price']
+    date = usd_quote['last_updated']
+
+    price_open = [price]
+    price_date = [date]
+
+
+    ########################################################
 
     params = {'json_result':json_result[0],
               'cryptocurrency':cryptocurrency,

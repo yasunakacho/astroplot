@@ -1,0 +1,15 @@
+CRYPTO_NAME_TO_SYMBOL = {
+    "bitcoin": "BTC",
+    "ethereum": "ETH",
+    "ripple": "XRP",
+    "bitcoin-cash": "BCH",
+    "eos": "EOS",
+    "litecoin": "LTC",
+    "stellar": "XLM",
+    "iota": "MIOTA",
+    "cardano": "ADA",
+    "tron": "TRX",
+    "neo": "NEO",
+    "monero": "XMR",
+    "tether": "USDT",
+}
