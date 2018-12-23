@@ -5,8 +5,6 @@ from twython import Twython
 from .models import Cryptocurrency, Price, Alert
 from datetime import date, datetime, timedelta
 
-
-
 from .forms import AlertForm
 
 from django.contrib.auth.models import User
@@ -137,7 +135,7 @@ def detail(request, id):
     ### need to hide security code for PostgreSQL
 
     #2 display past 31 days of data from database to the upper chart
-    #2 I can do this part  
+    #2 I can do this part
     ########################################################
 
     params = {'json_result':json_result[0],
