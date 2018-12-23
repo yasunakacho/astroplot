@@ -108,10 +108,11 @@
                     <div class="card-body">
                         <canvas id="growth-chart" width="400" height="190"></canvas>
                         <script>
-                        let growthData = {{price_open}};
+                        let growthData = {{ml_price_open}};
                         {% autoescape off %}
-                        let growthDate = {{price_date}}.sort();
+                        let growthDate = {{ml_price_date}}.sort();
                         {% endautoescape %}
+                        console.log(growthDate, 'date');
                         new Chart(document.getElementById("growth-chart"), {
                           type: 'line',
                           data: {

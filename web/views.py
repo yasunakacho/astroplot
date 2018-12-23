@@ -86,8 +86,8 @@ def detail(request, id):
 #        }
 #        result.append(result_line)
 
-    price_open = [float(a_price.open) for a_price in price_list]
-    price_date = ["{:'%Y-%m-%d'}".format(a_price.date) for a_price in price_list]
+    ml_price_open = [float(a_price.open) for a_price in price_list]
+    ml_price_date = ["{:'%Y-%m-%d'}".format(a_price.date) for a_price in price_list]
 
     # str to date
     #date_str = 'Jun 16, 2018'
@@ -99,8 +99,8 @@ def detail(request, id):
     #this line is simply trying to update sqlite
     #price = Price.objects.get(coin_id=1)
     #print(list_price, 'this is prices')
-    print(price_open[0:20], 'this is prices')
-    print(price_date[0:20], 'this is dates')
+    print(ml_price_open[0:20], 'this is prices')
+    print(ml_price_date[0:20], 'this is dates')
     #print (result, 'this is dates')
     #print (result.open, 'this is open')
 
@@ -127,11 +127,25 @@ def detail(request, id):
 
 
     ########################################################
+    #1 create cron to store the scraped data to database everyday
+    #1-1 automatically run the Kaeken script from bash for once
+    #1-1-1 change variable based on cryptocurrency
+    #1-1-2 change order for data storage -> upside down
+    #1-2 use Kushagra script to run everyday and store to postgresql
+    #1-2-1 change variable based on cryptocurrency
+    #1-2-2 only add the latest data without changing the rest
+    ### need to hide security code for PostgreSQL
+
+    #2 display past 31 days of data from database to the upper chart
+    #2 I can do this part  
+    ########################################################
 
     params = {'json_result':json_result[0],
               'cryptocurrency':cryptocurrency,
-              'price_open':price_open[0:31],
-              'price_date':price_date[0:31],
+              'price_open':price_open,
+              'price_date':price_date,
+              'ml_price_open':ml_price_open[0:31],
+              'ml_price_date':ml_price_date[0:31],
               'create_form':create_form,
              }
     return render(request, 'detail.html', params)

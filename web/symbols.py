@@ -12,4 +12,5 @@ CRYPTO_NAME_TO_SYMBOL = {
     "neo": "NEO",
     "monero": "XMR",
     "tether": "USDT",
+    "bitcoin-sv": "BSV",
 }
