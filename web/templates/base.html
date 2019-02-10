@@ -20,6 +20,23 @@
           gtag('js', new Date());
 
           gtag('config', 'UA-100034069-2');
+          gtag('config', 'AW-769610924');
+        </script>
+        <!-- Event snippet for Google Signup conversion page
+        In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+        <script>
+        function gtag_report_conversion(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'conversion', {
+              'send_to': 'AW-769610924/-SV6CLXI-pQBEKyp_e4C',
+              'event_callback': callback
+          });
+          return false;
+        }
         </script>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <script>

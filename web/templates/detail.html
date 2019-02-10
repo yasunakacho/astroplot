@@ -87,7 +87,7 @@
                         {% if user.is_authenticated %}
                             <button type="submit" class="btn btn-primary mb-2 center" onclick="return confirm('Are you sure?')">Start Tracking</button>
                         {% else %}
-                            <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-primary">Login with Google</a>
+                            <a onclick="return gtag_report_conversion('https://accounts.google.com/signin/oauth');" href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-primary">Login with Google</a>
                         {% endif %}
                     </form>
                 </div>
