@@ -8,7 +8,7 @@ coinmarketcap==4.2.1
 decorator==4.3.0
 defusedxml==0.5.0
 dj-database-url==0.5.0
-Django==2.0.4
+Django==2.2.24
 django-secrets==1.0.1
 djangorestframework==3.8.2
 docopt==0.4.0
